@@ -1,0 +1,8 @@
+# Copyright (C) 2026 The Android Open Source Project
+# Copyright (C) 2026 ziadlawatey
+
+on init
+    # unlink /efs > /mnt/vendor/efs
+    rm /efs
+    mkdir /efs
+    mkdir /sec_efs

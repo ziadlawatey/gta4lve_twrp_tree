@@ -1,0 +1,30 @@
+# Copyright (C) 2026 The Android Open Source Project
+# Copyright (C) 2026 ziadlawatey
+
+# Logical mappings for UI GSI flashing
+/system_image      emmc    /dev/block/mapper/system         flags=backup=0;flashimg=1;display="System"
+/vendor_image      emmc    /dev/block/mapper/vendor         flags=backup=0;flashimg=1;display="Vendor"
+/product_image     emmc    /dev/block/mapper/product        flags=backup=0;flashimg=1;display="Product"
+/system_ext_image  emmc    /dev/block/mapper/system_ext     flags=backup=0;flashimg=1;display="System_EXT"
+
+# Hardware Images and Core Flashable Nodes
+/boot              emmc    /dev/block/by-name/boot          flags=backup=1;flashimg=1;display="Boot"
+/recovery          emmc    /dev/block/by-name/recovery      flags=backup=1;flashimg=1;display="Recovery"
+/dtbo              emmc    /dev/block/by-name/dtbo          flags=backup=1;flashimg=1;display="DTBO"
+/vbmeta            emmc    /dev/block/by-name/vbmeta        flags=backup=1;flashimg=1;display="VBMeta"
+/vbmeta_system     emmc    /dev/block/by-name/vbmeta_system flags=backup=1;flashimg=1;display="VBMeta System"
+/vbmeta_vendor     emmc    /dev/block/by-name/vbmeta_vendor flags=backup=1;flashimg=1;display="VBMeta Vendor"
+/recovery          emmc    /dev/block/by-name/recovery      flags=backup=1;display="Recovery";flashimg=1
+/misc              emmc    /dev/block/by-name/misc
+/cache             ext4    /dev/block/by-name/cache         flags=backup=1;display="Cache"
+/metadata          ext4    /dev/block/by-name/metadata      flags=backup=1;display="Metadata"
+/data              f2fs    /dev/block/by-name/userdata
+
+# Samsung Device Specific Images
+/optics_image      emmc    /dev/block/by-name/optics       flags=backup=1;flashimg=1;display="Optics"
+/prism_image       emmc    /dev/block/by-name/prism        flags=backup=1;flashimg=1;display="Prism"
+/sec_efs           ext4    /dev/block/by-name/sec_efs      flags=backup=1;display="SEC EFS"
+
+# Removable storage
+/external_sd       vfat    /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
+/usb-otg           vfat    /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
