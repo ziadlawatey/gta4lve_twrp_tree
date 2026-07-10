@@ -45,10 +45,6 @@ PLATFORM_SECURITY_PATCH := 2127-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
-# PitchBlack Recovery Project Configuration
-PB_OFFICIAL := true
-PB_DISABLE_DEFAULT_DM_VERITY := true
-
 # Core IPC and Hardware Abstraction Services
 BOARD_HAS_VND_BINDER := true
 TW_USE_LEGACY_BATTERY_SERVICES := true
@@ -64,10 +60,6 @@ TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 160
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/sprd_backlight/brightness"
 TW_SECONDARY_BRIGHTNESS_PATH := "/sys/devices/platform/soc/soc:ap-ahb/20400000.dsi/20400000.dsi.0/display/panel0/sprd_backlight/brightness"
-
-# Screen Blanking Behavior
-TW_NO_SCREEN_BLANK := false
-TW_SCREEN_BLANK_ON_BOOT := false
 
 # Touch Input & Temperature Nodes
 TW_SUPPORT_INPUT_AIDL := true
