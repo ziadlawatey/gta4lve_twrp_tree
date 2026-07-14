@@ -61,6 +61,9 @@ TW_DEFAULT_BRIGHTNESS := 160
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/sprd_backlight/brightness"
 TW_SECONDARY_BRIGHTNESS_PATH := "/sys/devices/platform/soc/soc:ap-ahb/20400000.dsi/20400000.dsi.0/display/panel0/sprd_backlight/brightness"
 
+# Screen Blanking Behavior
+TW_SCREEN_BLANK_ON_BOOT := false
+
 # Touch Input & Temperature Nodes
 TW_SUPPORT_INPUT_AIDL := true
 TW_SUPPORT_INPUT_HIDL := true
@@ -86,12 +89,6 @@ TW_ENABLE_FS_COMPRESSION := true
 TW_INCLUDE_LPTOOLS := true
 TW_INCLUDE_LPDUMP := true
 TW_INCLUDE_REPACKTOOLS := true
-
-# Cryptographic Decryption Frameworks
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_INCLUDE_OMAPI := true
-TW_USE_FSCRYPT_POLICY := 1
 
 # USB, ADB, and MTP Initialization Configurations
 TW_EXCLUDE_DEFAULT_USB_INIT := true
