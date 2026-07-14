@@ -105,11 +105,88 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
+# Anti-Rollback Bypasses & Security Patch Levels
+PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+PLATFORM_SECURITY_PATCH := 2127-12-31
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+
+# Storage Mounting & Extended Filesystem Drivers
+TW_USE_TOOLBOX := true
+TW_NO_BIND_SYSTEM := true
+TW_HAS_LARGE_FILESYSTEM := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_SKIP_ADDITIONAL_FSTAB := true
+ALLOW_LOGICAL_PARTITION_WIPE := true
+
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_FAT := true
+TW_INCLUDE_EXFAT := true
+TW_INCLUDE_FUSE_EXFAT := true
+TW_ENABLE_FS_COMPRESSION := true
+
 # Logical Mapping & GSI Flashing Pipelines
 TW_ENABLE_ALL_PARTITION_TOOLS := true
 TW_INCLUDE_LPTOOLS := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_VNDK_VERSION := current
+
+# User Interface Theme & Screenshot Options
+TW_THEME := portrait_hdpi
+TW_DEFAULT_LANGUAGE := en
+TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_FB2PNG := true
+
+# Screen Blanking Behavior
+TW_SCREEN_BLANK_ON_BOOT := false
+
+# Core IPC and Hardware Abstraction Services
+BOARD_HAS_VND_BINDER := true
+TW_USE_LEGACY_BATTERY_SERVICES := true
+
+# Graphics Drivers & Display Optimization
+TARGET_USES_HWC2 := true
+TARGET_SCREEN_DENSITY := 240
+TW_FRAMERATE := 60
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# Brightness Backlight Nodes
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 160
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/sprd_backlight/brightness"
+TW_SECONDARY_BRIGHTNESS_PATH := "/sys/devices/platform/soc/soc:ap-ahb/20400000.dsi/20400000.dsi.0/display/panel0/sprd_backlight/brightness"
+
+# Touch Input & Temperature Nodes
+TW_SUPPORT_INPUT_AIDL := true
+TW_SUPPORT_INPUT_HIDL := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone2/temp"
+TW_FORCE_CPUINFO := true
+
+# Logical Partition & Repacking Utilities
+TW_INCLUDE_LPTOOLS := true
+TW_INCLUDE_LPDUMP := true
+TW_INCLUDE_REPACKTOOLS := true
+
+# USB, ADB, and MTP Initialization Configurations
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_USE_NEW_MINADBD := true
+TW_HAS_MTP := true
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP := true
+
+# Boot and Reboot Target Menus
+TW_HAS_DOWNLOAD_MODE := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_INCLUDE_FASTBOOTD := true
+
+# Compilation Exclusions and Logging Controls
+TW_EXCLUDE_APEX := true
+TW_EXCLUDE_TWRPAPP := true
+TW_NO_LEGACY_PROPS := true
+TWRP_INCLUDE_LOGCAT := true
+TW_INCLUDE_LIBUNWIND := true
 
 # Recovery Path Definitions & Configuration Hooks
 TARGET_SYSTEM_PROP := \
