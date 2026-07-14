@@ -1,15 +1,27 @@
-# Keystore / Keymaster
-fbe.metadata.wrappedkey=true
+# Display and Identity
+ro.display.series=Samsung Galaxy Tab A7 10.4
+ro.product.system.brand=samsung
+ro.product.system.device=gta4lve
+ro.product.system.manufacturer=samsung
+ro.product.system.model=SM-T509
 
-# Logging
-persist.sys.qseelogd=true
+# Hardware Platform & Boot
+ro.board.platform=ums512
+ro.product.board=ums512
+ro.boot.dynamic_partitions=true
+ro.boot.dynamic_partitions_op=1
+
+# USB Controller & Gadget
+sys.usb.controller=musb-hdrc.0.auto
+sys.usb.configfs=1
+persist.sys.usb.config=mtp,adb
+
+# ADB & Debugging
+ro.adb.secure=0
+ro.debuggable=1
 persist.logd.size=8M
 
-# FUSE passthrough
-persist.sys.fuse.passthrough.enable=true
-
-# Charger suspend 
+# System Services & Features
+fbe.metadata.wrappedkey=true
 ro.charger.enable_suspend=1
-
-# ADB
-ro.adb.secure=0
+persist.sys.qseelogd=true
