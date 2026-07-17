@@ -1,15 +1,47 @@
-# gta4lve_twrp_tree
+# Samsung Galaxy Tab A7 10.4 (gta4lve) TWRP Device Tree
+
+Device tree for building **TWRP 3.7.1 (Android 12.1)** for the Samsung Galaxy Tab A7 10.4 (gta4lve).
+
+## Sync the Source
+
+Create a working directory and initialize the TWRP source:
+
+```bash
+mkdir gta4lve
+cd gta4lve
 
 repo init --depth=1 \
     -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git \
     -b twrp-12.1
+
 repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+```
 
-to fix graphics_drm with 12.1 manifest 
-go this path inside your twrp manifest bootable/recovery/minuitwrp/
+## Clone the Device Tree
 
-and replace the graphics_drm.cpp file to this instead
+Create the required directory structure and clone the device tree:
 
+```bash
+mkdir -p device/samsung
+git clone https://github.com/ziadlawatey/gta4lve_twrp_tree.git device/samsung/gta4lve
+```
+
+## Required Patch
+
+The `twrp-12.1` manifest does not include a `graphics_drm.cpp` implementation that works correctly on the Galaxy Tab A7 10.4 (gta4lve).
+
+Change the following file content
+
+```text
+bootable/recovery/minuitwrp/graphics_drm.cpp
+```
+
+to this instead:
+
+<details>
+<summary><strong>graphics_drm.cpp</strong> (click to expand)</summary>
+
+```cpp
 /*
  * Copyright (C) 2015 The Android Open Source Project
  *
@@ -454,5 +486,26 @@ static minui_backend drm_backend = {
 minui_backend* open_drm() {
     return &drm_backend;
 }
+```
 
-and enjoy
+</details>
+
+## Build
+
+```bash
+source build/envsetup.sh
+lunch twrp_gta4lve-eng
+mka adbd recoveryimage -j$(nproc --all)
+```
+
+The compiled recovery image will be located at:
+
+```text
+out/target/product/gta4lve/recovery.img
+```
+
+## Credits
+
+- Ziad Lawatey
+- TeamWin Recovery Project
+- minimal-manifest-twrp
