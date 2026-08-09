@@ -509,4 +509,4 @@ out/target/product/gta4lve/recovery.img
 - Ziad Lawatey
 - TeamWin Recovery Project
 - minimal-manifest-twrp
-- Everyone who helped with testing
+- Everyone who helped
