@@ -507,3 +507,6 @@ out/target/product/gta4lve/recovery.img
 ## Credits
 
 - Ziad Lawatey
+- TeamWin Recovery Project
+- minimal-manifest-twrp
+- Everyone who helped with testing
