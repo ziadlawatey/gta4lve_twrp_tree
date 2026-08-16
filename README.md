@@ -2,6 +2,12 @@
 
 Device tree for building **TWRP 3.7.1 (Android 12.1)** for the Samsung Galaxy Tab A7 10.4 (gta4lve).
 
+## Recommended Build Specs
+
+- **RAM:** 8 GB+
+- **Storage:** 50 GB+ free
+- **OS:** 64-bit Linux
+
 ## Sync the Source
 
 Create a working directory and initialize the TWRP source:
